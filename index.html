@@ -43,7 +43,12 @@
                 border: 1px solid #ddd;
                 padding: 8px;
                 text-align: center;
-                font-size: 14px;
+                font-size: 15px;
+            }
+
+            tr td:first-child {
+                font-weight: 700;
+                text-align: left;
             }
 
             th {
@@ -73,6 +78,7 @@
                 padding: 12px;
                 text-align: center;
                 background: #fafafa;
+                font-size: 18px;
             }
 
             .box label {
@@ -145,7 +151,7 @@
 
         <div class="container">
             <div class="calculator">
-                <h2>Price Calculator</h2>
+                <h1 class="text-center mb-4">Price Calculator</h1>
 
                 <table>
                     <thead>
@@ -243,8 +249,7 @@
 
             const formatBDT = value =>
                 '৳' + value.toLocaleString('en-BD', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
+                    maximumFractionDigits: 0
                 });
 
             function calculate() {
