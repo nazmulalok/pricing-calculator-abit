@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Price Calculator</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                padding: 14px;
+                font-family: system-ui, -apple-system, Arial, sans-serif;
+                background: #f4f6f8;
+            }
+
+            .calculator {
+                max-width: 100%;
+                background: #fff;
+                padding: 16px;
+                border-radius: 6px;
+            }
+
+            h2 {
+                margin: 0 0 12px;
+                font-size: 20px;
+            }
+
+            /* ===== TABLE (DESKTOP) ===== */
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            th {
+                background: #eaf6ea;
+            }
+
+            input[type="number"] {
+                width: 80px;
+                padding: 4px;
+            }
+
+            .subtotal {
+                font-weight: 600;
+            }
+
+            /* ===== SUMMARY ===== */
+
+            .summary {
+                margin-top: 16px;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .box {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: center;
+                background: #fafafa;
+            }
+
+            .box label {
+                display: block;
+                font-size: 13px;
+                color: #555;
+                margin-bottom: 4px;
+            }
+
+            .highlight {
+                background: #e9f8ec;
+                color: #0a7a0a;
+            }
+
+            /* ===== DESKTOP ===== */
+
+            @media (min-width: 768px) {
+                .summary {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            /* ===== MOBILE CARD LAYOUT ===== */
+
+            @media (max-width: 640px) {
+
+                table,
+                thead,
+                tbody,
+                tr {
+                    display: block;
+                    width: 100%;
+                }
+
+                thead {
+                    display: none;
+                }
+
+                tr {
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    margin-bottom: 12px;
+                    padding: 10px;
+                    background: #fff;
+                }
+
+                td {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: none;
+                    padding: 6px 0;
+                    font-size: 14px;
+                }
+
+                td::before {
+                    content: attr(data-label);
+                    font-weight: 600;
+                    color: #444;
+                }
+
+                input[type="number"] {
+                    width: 90px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="calculator">
+                <h2>Price Calculator</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Job Item</th>
+                            <th>Unit Price (৳)</th>
+                            <th>Unit</th>
+                            <th>Sub Total (৳)</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="calculatorBody">
+                        <tr>
+                            <td data-label="Job Item">Understanding (4X)</td>
+                            <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
+                            <td data-label="Unit"><input type="number" value="2" data-qty></td>
+                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="Job Item">Strategy & Consulting</td>
+                            <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
+                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="Job Item">Domain & Hosting</td>
+                            <td data-label="Unit Price"><input type="number" value="4000" data-price></td>
+                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="Job Item">Platform Setup</td>
+                            <td data-label="Unit Price"><input type="number" value="24000" data-price></td>
+                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="Job Item">Content Development</td>
+                            <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
+                            <td data-label="Unit"><input type="number" value="8" data-qty></td>
+                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="Job Item">Webmaster Tools</td>
+                            <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
+                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="Job Item">Keyword Planning</td>
+                            <td data-label="Unit Price"><input type="number" value="12000" data-price></td>
+                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                        </tr>
+
+                        <tr>
+                            <td data-label="Job Item">Content Migration</td>
+                            <td data-label="Unit Price"><input type="number" value="3000" data-price></td>
+                            <td data-label="Unit"><input type="number" value="0" data-qty></td>
+                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="summary">
+                    <div class="box">
+                        <label>Total Cost</label>
+                        <strong id="totalCost">৳0.00</strong>
+                    </div>
+
+                    <div class="box">
+                        <label>Multiplier</label>
+                        <input type="number" step="0.1" value="1.6" id="multiplier">
+                    </div>
+
+                    <div class="box highlight">
+                        <label>Sale Price</label>
+                        <strong id="salePrice">৳0.00</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const body = document.getElementById('calculatorBody');
+            const totalCostEl = document.getElementById('totalCost');
+            const salePriceEl = document.getElementById('salePrice');
+            const multiplierInput = document.getElementById('multiplier');
+
+            const formatBDT = value =>
+                '৳' + value.toLocaleString('en-BD', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+
+            function calculate() {
+                let total = 0;
+
+                body.querySelectorAll('tr').forEach(row => {
+                    const price = +row.querySelector('[data-price]').value || 0;
+                    const qty = +row.querySelector('[data-qty]').value || 0;
+                    const subtotal = price * qty;
+
+                    row.querySelector('.subtotal').textContent = formatBDT(subtotal);
+                    total += subtotal;
+                });
+
+                const multiplier = +multiplierInput.value || 1;
+                totalCostEl.textContent = formatBDT(total);
+                salePriceEl.textContent = formatBDT(total * multiplier);
+            }
+
+            document.addEventListener('input', e => {
+                if (e.target.matches('[data-price], [data-qty], #multiplier')) {
+                    calculate();
+                }
+            });
+
+            calculate();
+        </script>
+
+    </body>
+
+</html>
