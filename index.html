@@ -67,7 +67,6 @@
             /* ===== SUMMARY ===== */
 
             .summary {
-                margin-top: 16px;
                 display: grid;
                 grid-template-columns: 1fr;
                 gap: 10px;
@@ -95,9 +94,23 @@
 
             /* ===== DESKTOP ===== */
 
-            @media (min-width: 768px) {
+            @media (min-width: 1200px) {
+                .summary {
+                    position: sticky;
+                    top: 15px;
+                }
+            }
+
+            @media (min-width: 768px) and (max-width: 1199px) {
                 .summary {
                     grid-template-columns: repeat(3, 1fr);
+                    margin-top: 12px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .summary {
+                    margin-top: 10px;
                 }
             }
 
@@ -152,118 +165,122 @@
         <div class="container">
             <div class="calculator">
                 <h1 class="text-center mb-4">Price Calculator</h1>
+                <div class="row">
+                    <div class="col-xl-9">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Job Item</th>
+                                    <th>Unit Price (৳)</th>
+                                    <th>Unit</th>
+                                    <th>Sub Total (৳)</th>
+                                </tr>
+                            </thead>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Job Item</th>
-                            <th>Unit Price (৳)</th>
-                            <th>Unit</th>
-                            <th>Sub Total (৳)</th>
-                        </tr>
-                    </thead>
+                            <tbody id="calculatorBody">
+                                <tr>
+                                    <td data-label="Job Item">Understanding (4X)</td>
+                                    <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="2" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                    <tbody id="calculatorBody">
-                        <tr>
-                            <td data-label="Job Item">Understanding (4X)</td>
-                            <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="2" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">Strategy & Consulting</td>
+                                    <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">Strategy & Consulting</td>
-                            <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">Domain & Hosting</td>
+                                    <td data-label="Unit Price"><input type="number" value="4000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">Domain & Hosting</td>
-                            <td data-label="Unit Price"><input type="number" value="4000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">Platform Setup</td>
+                                    <td data-label="Unit Price"><input type="number" value="24000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">Platform Setup</td>
-                            <td data-label="Unit Price"><input type="number" value="24000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">CX Design - UI/UX - 1X</td>
+                                    <td data-label="Unit Price"><input type="number" value="18000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="0" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">CX Design - UI/UX - 1X</td>
-                            <td data-label="Unit Price"><input type="number" value="18000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="0" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">SEO Audit</td>
+                                    <td data-label="Unit Price"><input type="number" value="12000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="0" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">SEO Audit</td>
-                            <td data-label="Unit Price"><input type="number" value="12000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="0" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">Content Planning</td>
+                                    <td data-label="Unit Price"><input type="number" value="12000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="0" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">Content Planning</td>
-                            <td data-label="Unit Price"><input type="number" value="12000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="0" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">Content Development</td>
+                                    <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="8" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">Content Development</td>
-                            <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="8" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">Webmaster Tools</td>
+                                    <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">Webmaster Tools</td>
-                            <td data-label="Unit Price"><input type="number" value="9000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">Chatbot Setup</td>
+                                    <td data-label="Unit Price"><input type="number" value="6000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="0" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">Chatbot Setup</td>
-                            <td data-label="Unit Price"><input type="number" value="6000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="0" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
+                                <tr>
+                                    <td data-label="Job Item">Keyword Planning</td>
+                                    <td data-label="Unit Price"><input type="number" value="12000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="1" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
 
-                        <tr>
-                            <td data-label="Job Item">Keyword Planning</td>
-                            <td data-label="Unit Price"><input type="number" value="12000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="1" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
-
-                        <tr>
-                            <td data-label="Job Item">Content Migration</td>
-                            <td data-label="Unit Price"><input type="number" value="3000" data-price></td>
-                            <td data-label="Unit"><input type="number" value="0" data-qty></td>
-                            <td data-label="Sub Total" class="subtotal">৳0.00</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="summary">
-                    <div class="box">
-                        <label>Total Cost</label>
-                        <strong id="totalCost">৳0.00</strong>
+                                <tr>
+                                    <td data-label="Job Item">Content Migration</td>
+                                    <td data-label="Unit Price"><input type="number" value="3000" data-price></td>
+                                    <td data-label="Unit"><input type="number" value="0" data-qty></td>
+                                    <td data-label="Sub Total" class="subtotal">৳0.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                    <div class="col-xl-3">
+                        <div class="summary">
+                            <div class="box">
+                                <label>Total Cost</label>
+                                <strong id="totalCost">৳0.00</strong>
+                            </div>
 
-                    <div class="box">
-                        <label>Multiplier</label>
-                        <input type="number" step="0.1" value="1.6" id="multiplier">
-                    </div>
+                            <div class="box">
+                                <label>Multiplier</label>
+                                <input type="number" step="0.1" value="1.6" id="multiplier">
+                            </div>
 
-                    <div class="box highlight">
-                        <label>Sale Price</label>
-                        <strong id="salePrice">৳0.00</strong>
+                            <div class="box highlight">
+                                <label>Sale Price</label>
+                                <strong id="salePrice">৳0.00</strong>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
